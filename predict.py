@@ -15,8 +15,10 @@ text = input("Enter your sms : ")
 
 tokenized_text = tokenizer.texts_to_sequences([text])[0]
 tokenized_text = pad_sequences([tokenized_text], maxlen = max_sequence_len, padding='post')
-tokenized_text = np.array(tokenized_text)
+# tokenized_text = np.array(tokenized_text)
 predicted = model.predict(tokenized_text, verbose=0)
+
+print(tokenizer.sequences_to_texts(tokenized_text))
 
 print("\n\n\n")
 if predicted > 0.5:
